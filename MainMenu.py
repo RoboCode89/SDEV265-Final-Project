@@ -31,7 +31,6 @@ while(exit == False):
     if(userInput == 4):
         finalAnswer = input("Are you sure you want to close? 'y' for yes, 'n' for no: ")
         if(finalAnswer == "y"):
-            print("Goodbye!")
             exit = True
         elif(finalAnswer == "n"):
             print("Returning to Menu")
