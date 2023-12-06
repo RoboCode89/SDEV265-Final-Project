@@ -7,7 +7,7 @@ customerSelection = 0
 exit = False
 
 while(exit == False):
-    userInput = int(input("Which menu would you like to use? \n1. Food Menu\n2. Billing\n3. Reservation\n4. Close POS\n"))
+    userInput = int(input("Which menu would you like to use? \n1. Food Menu\n2. Billing\n3. Reservation\n4. Exit Menu\n"))
     
     if(userInput == 1):
         count = int(input("Please enter the customer number: "))
