@@ -83,5 +83,5 @@ def seat_guest(reservation): # link this function to a seat guest button when it
     reservation.update_seated_status(guest_id, True)
     print(f"Guest {guest_id} has been seated.")
 # Call the function to start the reservation process and seat guest
-reservation = add_guest_reservation() #should be activated by button click in the UI
-seat_guest(reservation) #should be activated by button click in the UI
+'''reservation = add_guest_reservation() #should be activated by button click in the UI
+seat_guest(reservation) #should be activated by button click in the UI'''
