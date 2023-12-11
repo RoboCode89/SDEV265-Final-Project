@@ -47,7 +47,8 @@ while(exit == False):
         if(userInput == 1):
             add_guest_reservation()#should be activated by button click in the UI
         if(userInput == 2):
-            seat_guest()#should be activated by button click in the UI
+            test1 = Reservation(1)
+            seat_guest(test1)#should be activated by button click in the UI
         
     if(userInput == 4):
         finalAnswer = input("Are you sure you want to close? 'y' for yes, 'n' for no: ")
@@ -57,3 +58,15 @@ while(exit == False):
             print("Returning to Menu")
         elif(finalAnswer != "y" or finalAnswer != "n"):
             print("Invalid selection. Returning to menu.\n")
+
+
+
+
+'''
+UNUSED CODE
+i = 0
+print("Bill is", "%.2f" %bill)
+print("Items Chosen: ")
+        while(i < len(billItems[0])): #Doing it this way allows to select specific billItems for customer using double array
+            print(billItems[0][i].getName(), " ", billItems[0][i].getPrice())
+            i += 1'''
