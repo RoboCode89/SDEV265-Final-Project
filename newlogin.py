@@ -43,33 +43,34 @@ class Login():
         else:
             print("Login Failed") #credentials are incorrect
         db_conn.close()
- #input validation for first and last name entry       
-while True:
-    fname = input("First name: ")
-    lname = input("Last name: ")
-    if not fname.isalpha():
-        print("Invalid first name! Please enter alphabetic characters only. ")
-    elif not lname.isalpha():
-        print("Invalid last name! Please enter alphabetic characters only. ")
-    else:
-        break
-#input validation for user id being integer
-while True:
-    try:
-        user_id = int(input("Enter 4 digit pin: "))
-        if user_id < 1000 or user_id > 9999:
-            print("Please enter a 4 digit pin! ")
+ #input validation for first and last name entry
+def check_credentials_and_login():      
+    while True:
+        fname = input("First name: ")
+        lname = input("Last name: ")
+        if not fname.isalpha():
+            print("Invalid first name! Please enter alphabetic characters only. ")
+        elif not lname.isalpha():
+            print("Invalid last name! Please enter alphabetic characters only. ")
         else:
             break
-    except ValueError:
-        print("Incorrect input, please enter numbers only")
+#input validation for user id being integer
+    while True:
+        try:
+            user_id = int(input("Enter 4 digit pin: "))
+            if user_id < 1000 or user_id > 9999:
+             print("Please enter a 4 digit pin! ")
+            else:
+                break
+        except ValueError:
+            print("Incorrect input, please enter numbers only")
 #create object for employee        
-employee = Employee(fname, lname, user_id)
+    employee = Employee(fname, lname, user_id)
 #registering the employee
-register = Register(employee)
-register.register()
+    register = Register(employee)
+    register.register()
 #logging in employee
-login = Login(employee)
-login.employee_login()
+    login = Login(employee)
+    login.employee_login()
         
         
