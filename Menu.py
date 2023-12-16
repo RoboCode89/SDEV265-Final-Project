@@ -22,6 +22,9 @@ class Appetizer(Menu):
         self.addBread = addBread
         if(self.addBread == True):
             self.price += 1
+    
+    def __repr__(self):
+        return f"{self.name} {self.price}"
         
     def setAddBread(self, addBread):
         self.addBread = addBread
@@ -39,6 +42,9 @@ class Entree(Menu):
             self.price += 2
         if(self.addSalad == True):
             self.price += 2
+
+    def __repr__(self):
+        return f"{self.name} {self.price}"
     
     def setAddSoup(self, addSoup):
         self.addSoup = addSoup
@@ -61,6 +67,9 @@ class Dessert(Menu):
         self.isAlaMode = isAlaMode
         if(self.isAlaMode == True):
             self.price += 2
+    
+    def __repr__(self):
+        return f"{self.name} {self.price}"
         
     def setIsAlaMode(self, isAlaMode):
         self.isAlaMode = isAlaMode
@@ -77,6 +86,9 @@ class Drink(Menu):
         super().__init__(name, price)
         self.addLemon = addLemon
         self.addSugar = addSugar
+    
+    def __repr__(self):
+        return f"{self.name} {self.price}"
         
     def setAddLemon(self, addLemon):
         self.addLemon = addLemon
@@ -100,6 +112,9 @@ class Alcohol(Menu):
         self.addDoubleShot = addDoubleShot
         if(self.addDoubleShot == True):
             self.price += 3
+    
+    def __repr__(self):
+        return f"{self.name} {self.price}"
         
     def setAddWhippedCream(self, addWhippedCream):
         self.addWhippedCream = addWhippedCream
@@ -111,6 +126,6 @@ class Alcohol(Menu):
         self.addDoubleShot = addDoubleShot
     
     def getAddDoubleShot(self):
-        self.addDoubleShot = addDoubleShot
+        return self.addDoubleShot
         
     

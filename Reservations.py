@@ -7,6 +7,9 @@ class Guest:
         self.party_size = party_size
         self.phone_number = phone_number
         self.seated = seated
+    
+    def __repr__(self):
+        return f"{self.last_name}{self.party_size}{self.phone_number} {self.seated}"
 
 # Reservation class for guest reservation
 class Reservation:

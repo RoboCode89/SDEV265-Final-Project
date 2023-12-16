@@ -1,72 +1,67 @@
 from Menu import Menu, Appetizer, Entree, Dessert, Drink, Alcohol
 
+billList = [] #Creates final bill list for output
+appToAddList = [] #Any appetizers added to order are put in this list
+entreeToAddList = [] #Any entrees added to order are put in this list
+dessertToAddList = [] #Any desserts added to order are put in this list
+drinkToAddList = [] #Any drinks added to order are put in this list
+alcoholToAddList = [] #Any alcoholic beverages added to order are in this list
+appList = [] #List of appetizers
+appList.append(Appetizer("Fried Pickles", 6.35, False))
+appList.append(Appetizer("Cheese Sticks", 8.95, False))
+appList.append(Appetizer("Tortilla Chips", 3.65, False))
+appList.append(Appetizer("Onion Rings", 6.95, False))
+appList.append(Appetizer("Boneless Wings", 11.95, False))
+
+entreeList = [] #List of Entrees
+entreeList.append(Entree("Hand Crafted Burger", 14.95, False, False))
+entreeList.append(Entree("Grilled Atlantic Salmon", 21.95, False, False))
+entreeList.append(Entree("Ultimate Mac and Cheese", 16.95, False, False))
+entreeList.append(Entree("Fish and Chips", 15.80, False, False))
+entreeList.append(Entree("1/2 Ribs", 23.15, False, False))
+
+dessertList = [] #List of desserts
+dessertList.append(Dessert("Fudge Brownie", 8.45, False))
+dessertList.append(Dessert("Peanut Butter Brownie", 9.65, False))
+dessertList.append(Dessert("Cheesecake", 4.50, False))
+dessertList.append(Dessert("Vanilla Cake", 5.00, False))
+dessertList.append(Dessert("Bread Pudding", 7.15, False))
+
+drinkList = [] #List of drinks
+drinkList.append(Drink("Coke", 2.95, False, False))
+drinkList.append(Drink("Sprite", 2.95, False, False))
+drinkList.append(Drink("Sweet Tea", 2.95, False, False))
+drinkList.append(Drink("Unsweet Tea", 2.95, False, False))
+drinkList.append(Drink("Water", 0.00, False, False))
+
+alcoholList = [] #List of alcohol
+alcoholList.append(Alcohol("Long Island Iced Tea", 12.95, False, False))
+alcoholList.append(Alcohol("Old Fashioned", 11.55, False, False))
+alcoholList.append(Alcohol("Margarita", 14.15, False, False))
+alcoholList.append(Alcohol("Hurricane", 12.85, False, False))
+alcoholList.append(Alcohol("Mint Julep", 9.95, False, False))
+
+bill = 0.00
+userInput = 0
+
+#   MESSAGE FROM JOSH TO LOGAN
+#   I did not add any input validation because these menus are supposed to be
+#   accessed through clicking menu buttons through the POS. That being said, that
+#   is why I have weird breakout conditions to traverse the menus such as using
+#   100 to break out of the while loops. The idea is that to go back to a previous
+#   menu a user should just be able to click a "Back" button. That button should
+#   trigger the input to be read as "100". Same thing with "6" being the exit condition
+#   to leave the menu altogether. There should be a back button that when clicked 
+#   acts like "6" was entered to breakout.
+
+
+
+#   So this program is mostly made up of if statements. I will leave documentation
+#   in the first if statement so that it makes sense, and then every other elif
+#   statement after will be structured similarly.
+
 def menuSelection():
-    billList = [] #Creates final bill list for output
-    appToAddList = [] #Any appetizers added to order are put in this list
-    entreeToAddList = [] #Any entrees added to order are put in this list
-    dessertToAddList = [] #Any desserts added to order are put in this list
-    drinkToAddList = [] #Any drinks added to order are put in this list
-    alcoholToAddList = [] #Any alcoholic beverages added to order are in this list
-    appList = [] #List of appetizers
-    appList.append(Appetizer("Fried Pickles", 6.35, False))
-    appList.append(Appetizer("Cheese Sticks", 8.95, False))
-    appList.append(Appetizer("Tortilla Chips", 3.65, False))
-    appList.append(Appetizer("Onion Rings", 6.95, False))
-    appList.append(Appetizer("Boneless Wings", 11.95, False))
-    
-    entreeList = [] #List of Entrees
-    entreeList.append(Entree("Hand Crafted Burger", 14.95, False, False))
-    entreeList.append(Entree("Grilled Atlantic Salmon", 21.95, False, False))
-    entreeList.append(Entree("Ultimate Mac and Cheese", 16.95, False, False))
-    entreeList.append(Entree("Fish and Chips", 15.80, False, False))
-    entreeList.append(Entree("1/2 Ribs", 23.15, False, False))
-    
-    dessertList = [] #List of desserts
-    dessertList.append(Dessert("Fudge Brownie", 8.45, False))
-    dessertList.append(Dessert("Peanut Butter Brownie", 9.65, False))
-    dessertList.append(Dessert("Cheesecake", 4.50, False))
-    dessertList.append(Dessert("Vanilla Cake", 5.00, False))
-    dessertList.append(Dessert("Bread Pudding", 7.15, False))
-    
-    drinkList = [] #List of drinks
-    drinkList.append(Drink("Coke", 2.95, False, False))
-    drinkList.append(Drink("Sprite", 2.95, False, False))
-    drinkList.append(Drink("Sweet Tea", 2.95, False, False))
-    drinkList.append(Drink("Unsweet Tea", 2.95, False, False))
-    drinkList.append(Drink("Water", 0.00, False, False))
-    
-    alcoholList = [] #List of alcohol
-    alcoholList.append(Alcohol("Long Island Iced Tea", 12.95, False, False))
-    alcoholList.append(Alcohol("Old Fashioned", 11.55, False, False))
-    alcoholList.append(Alcohol("Margarita", 14.15, False, False))
-    alcoholList.append(Alcohol("Hurricane", 12.85, False, False))
-    alcoholList.append(Alcohol("Mint Julep", 9.95, False, False))
-    
-    bill = 0.00
-    userInput = 0
-    
-    #   MESSAGE FROM JOSH TO LOGAN
-    #   I did not add any input validation because these menus are supposed to be
-    #   accessed through clicking menu buttons through the POS. That being said, that
-    #   is why I have weird breakout conditions to traverse the menus such as using
-    #   100 to break out of the while loops. The idea is that to go back to a previous
-    #   menu a user should just be able to click a "Back" button. That button should
-    #   trigger the input to be read as "100". Same thing with "6" being the exit condition
-    #   to leave the menu altogether. There should be a back button that when clicked 
-    #   acts like "6" was entered to breakout.
-    
-    
-    
-    #   So this program is mostly made up of if statements. I will leave documentation
-    #   in the first if statement so that it makes sense, and then every other elif
-    #   statement after will be structured similarly.
-    
-    
-    
-    
-    
-    
-    
+
     while(userInput != 6):
         appChoice = 0 #Lines 70 - 74 are just initialization every time the loop goes through
         entreeChoice = 0
